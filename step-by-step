@@ -51,7 +51,12 @@ User defined classes:
          
          
 Map and moving 
-Map: vector of vectors [[] [] [] []] of pointers to organisms. 
+
+Map: 
+read in given map line by line into vector of vectors 
+
+vector of vectors [[] [] [] []] are pointers to organisms. 
+construct organism classes
 every iteration:
 organism.living ()
 update map 
