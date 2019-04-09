@@ -1,0 +1,65 @@
+User defined classes:
+  Organism :
+   member energy points
+   virtual function living (this will be overloaded in child classes )
+   member pointer to Organism // these will be used to put in the map 
+   
+   
+        plant : organism : //make sure to create a parent class instance 
+          inherit energy points / as regrowth coefficient 
+          overload living to growing (grow ++coefficient ){
+          check if no animal in that space 
+          grow
+          }
+          
+          
+          regrowth coefficient
+          species (one letter ID)
+          
+          
+        animal: organism 
+        inherit energy points 
+        max energy points
+        food chain 
+        overload living to move(=eat) 
+        { 1. check place of pointer in map:
+          up/down: [-1;0] or [+1;0] difference in coordinates [r,c]
+          left/right: [0;-1][0;+1] difference in coordinates [r;c]
+          copy values of pointers into a vector next = [a,b,c,d]
+          if omnivore that has this animal in its food chain:
+          move away 
+          if energy level >1/2+1:
+          if animal of the same species next to it:
+            if that animal has energy level >1/2 max:
+              if there is an empty element  in next  OR if there is an empty space in next to this animal:
+                create offspring 
+          else:      
+          move into the first empty place. 
+          if energy level <1/2+1:
+            if there is a plant/animal in its foodchain in next:
+              move there/eat
+            else
+          move into the first empty element in next  
+        }
+            
+  
+        
+        herbivore: animal
+    
+  
+        omnivore: animal 
+         
+         
+Map and moving 
+Map: vector of vectors [[] [] [] []] of pointers to organisms. 
+every iteration:
+organism.living ()
+update map 
+
+
+Printing map:
+overload printing function :
+  print char print organism.name that pointer is pointing to in the [ [] [] [] [] ] 
+
+
+
